@@ -44,7 +44,7 @@ lmp_config:
       maintain_session: False
       include_context: True
       has_return: False
-      return_val_name: ret_val
+      # return_val_name: ret_val
       load_cache: True
     composer:
       prompt_fname: composer_prompt
@@ -59,7 +59,7 @@ lmp_config:
       maintain_session: False
       include_context: False
       has_return: False
-      return_val_name: ret_val
+      # return_val_name: ret_val
       load_cache: True
     parse_query_obj:
       prompt_fname: parse_query_obj_prompt

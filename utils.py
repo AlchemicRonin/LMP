@@ -10,7 +10,7 @@ def set_lmp_objects(lmps, objects):
     if isinstance(lmps, dict):
         lmps = lmps.values()
     for lmp in lmps:
-        lmp._context = f"objects = {objects}"
+        lmp.set_context(f"objects = {objects}")
 
 
 def get_clock_time(milliseconds=False):

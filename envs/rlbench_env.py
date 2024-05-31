@@ -17,7 +17,6 @@ from utils import normalize_vector, bcolors
 class CustomMoveArmThenGripper(MoveArmThenGripper):
     """
     A potential workaround for the default MoveArmThenGripper as we frequently run into zero division errors and failed path.
-    TODO: check the root cause of it.
     Ignore arm action if it fails.
 
     Attributes:

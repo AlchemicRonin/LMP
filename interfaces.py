@@ -525,6 +525,7 @@ class LMP_interface:
 
 
 def setup_LMP(env, general_config, debug=False):
+    # NOTE: planner --> composer --> low-level LMPs
     controller_config = general_config["controller"]
     planner_config = general_config["planner"]
     lmp_env_config = general_config["lmp_config"]["env"]

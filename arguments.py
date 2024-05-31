@@ -16,7 +16,7 @@ def get_config(env=None, config_path=None):
     ), "env and config_path cannot be both specified"
     if config_path is None:
         assert env.lower() == "rlbench"
-        config_path = "./configs/rlbench_config.yaml"
+        config_path = "src/configs/rlbench_config.yaml"
     assert config_path and os.path.exists(
         config_path
     ), f"config file does not exist ({config_path})"
@@ -56,5 +56,5 @@ def get_config(env=None, config_path=None):
 
 
 def main():
-    config = get_config(config_path="./configs/rlbench_config.yaml")
+    config = get_config(config_path="src/configs/rlbench_config.yaml")
     print(config)
