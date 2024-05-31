@@ -524,7 +524,7 @@ class LMP_interface:
         return avoidance_map
 
 
-def setup_LMP(env, general_config, debug=False):
+def setup_LMP(env, client, general_config, debug=False):
     # NOTE: planner --> composer --> low-level LMPs
     controller_config = general_config["controller"]
     planner_config = general_config["planner"]
@@ -556,20 +556,32 @@ def setup_LMP(env, general_config, debug=False):
         if not name in ["composer", "planner", "config"]
     ]
     low_level_lmps = {
-        k: LMP(k, lmps_config[k], fixed_vars, variable_vars, debug, env_name)
+        k: LMP(k, lmps_config[k], client, fixed_vars, variable_vars, debug, env_name)
         for k in lmp_names
     }
     variable_vars.update(low_level_lmps)
 
     # creating the LMP for skill-level composition
     composer = LMP(
-        "composer", lmps_config["composer"], fixed_vars, variable_vars, debug, env_name
+        "composer",
+        lmps_config["composer"],
+        client,
+        fixed_vars,
+        variable_vars,
+        debug,
+        env_name,
     )
     variable_vars["composer"] = composer
 
     # creating the LMP that deals w/ high-level language commands
     task_planner = LMP(
-        "planner", lmps_config["planner"], fixed_vars, variable_vars, debug, env_name
+        "planner",
+        lmps_config["planner"],
+        client,
+        fixed_vars,
+        variable_vars,
+        debug,
+        env_name,
     )
 
     lmps = {
