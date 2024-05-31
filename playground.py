@@ -7,7 +7,7 @@ from utils import set_lmp_objects
 import numpy as np
 from rlbench import tasks
 
-openai.api_key = None
+openai.api_key = ""
 
 config = get_config("rlbench")
 # uncomment this if you'd like to change the language model (e.g., for faster speed or lower cost)
